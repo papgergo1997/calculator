@@ -1,33 +1,103 @@
 'use strict'
 
-const input = document.querySelector('.input');
 
-const btnSum = document.querySelector('.sum');
-const btnSub = document.querySelector('.sub');
-const btnMulti = document.querySelector('.multi');
-const btnDist = document.querySelector('.dist');
+class Calculator {
+    constructor(previousOperandTextElement, currentOperandTextElement){
+        this.previousOperandTextElement = previousOperandTextElement;
+        this.currentOperandTextElement = currentOperandTextElement;
+        this.clear();
+    };
 
-const btnZero = document.querySelector('.zero');
-const btnDot = document.querySelector('.dot');
-const btnC = document.querySelector('.c');
+    clear() {
+        this.currentOperand = '';
+        this.previousOperand = '';
+        this.operation = undefined;
+    };
 
-const btnOne = document.querySelector('.one');
-const btnTwo = document.querySelector('.two');
-const btnThree = document.querySelector('.three');
-const btnFour = document.querySelector('.four');
-const btnFive = document.querySelector('.five');
-const btnSix = document.querySelector('.six');
-const btnSeven = document.querySelector('.seven');
-const btnEight = document.querySelector('.eight');
-const btnNine = document.querySelector('.nine');
+    appendNumber(number) {
+        if(number === '.' && this.currentOperand.includes('.')) return;
+        this.currentOperand = this.currentOperand.toString() + number.toString();
+    };
 
-const btnResult = document.querySelector('.result')
+    chooseOperation(operation) {
+        if(this.currentOperand === '') return;
+        if(this.previousOperand !== '') {
+            this.compute()
+        }
+        this.operation = operation
+        this.previousOperand = this.currentOperand
+        this.currentOperand = ''
+    };
 
+    compute() {
+        let computation
+        const prev = parseFloat(this.previousOperand)
+        const current = parseFloat(this.currentOperand)
+        if (isNaN(prev) || isNaN(current)) return
+        switch (this.operation) {
+            case '+':
+                computation = prev + current
+                break
+            case '-':
+                computation = prev - current
+                break
+            case '×':
+                computation = prev * current
+                break
+            case '÷':
+                computation = prev / current
+                break
+            default:
+                return
+        }
+        this.currentOperand = computation
+        this.operation = undefined
+        this.previousOperand = ''
+    };
 
+    updateDisplay() {
+        this.currentOperandTextElement.innerText = this.currentOperand
+        if(this.operation != null) {
+            this.previousOperandTextElement.innerText = `${this.previousOperand} ${this.operation}`
 
+        };     
+       
+    };
+};
 
-btnOne.onclick = function() {
-input.value = 1;
-} 
+const previousOperandTextElement = document.querySelector('.previous-operand');
+const currentOperandTextElement = document.querySelector('.current-operand');
+
+const numberBtn = document.querySelectorAll('.number');
+const operationBtn = document.querySelectorAll('.operator');
+
+const clearBtn = document.querySelector('.c');
+const resultBtn = document.querySelector('.result');
+
+const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement);
+
+numberBtn.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.appendNumber(button.innerText)
+        calculator.updateDisplay()
+    });
+});
+
+operationBtn.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.chooseOperation(button.innerText)
+        calculator.updateDisplay()
+    });
+});
+
+resultBtn.addEventListener('click', button => {
+    calculator.compute()
+    calculator.updateDisplay()
+})
+
+clearBtn.addEventListener('click', button => {
+    calculator.clear()
+    calculator.updateDisplay()  
+})
 
 

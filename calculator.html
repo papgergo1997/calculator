@@ -10,64 +10,40 @@
 
 <body>
     <div class="calculator__container">
-        <div class="input">
-            <input type="text" readonly value="0" autocomplete="off">
-        </div>
+        
+            <!-- <input type="text" class="input previous-operand">
+            <input type="text" class="input current-operand"> -->
+            <div class="input previous-operand"></div>
+            <div class="input current-operand"></div>
+
+       
         <div class="calc-signs">
-            <div class="calc-sign sum">+</div>
-            <div class="calc-sign sub">-</div>
-            <div class="calc-sign multi">×</div>
-            <div class="calc-sign dist">÷</div>
+            <button class="operator">+</button>
+            <button class="operator">-</button>
+            <button class="operator">×</button>
+            <button class="operator">÷</button>
         </div>
         <div class="numbers">
             <div class="column-one">
-                <div class="number seven">
-                    <h4>7</h4>
-                </div>
-                <div class="number four">
-                    <h4>4</h4>
-                </div>
-                <div class="number one">
-                    <h4>1</h4>
-                </div>
-                <div class="number zero">
-                    <h4>0</h4>
-                </div>
-
+                <button class="number">7</button>
+                <button class="number">4</button>
+                <button class="number">1</button>
+                <button class="number">0</button>
             </div>
             <div class="column-two">
-                <div class="number eight">
-                    <h4>8</h4>
-                </div>
-                <div class="number five">
-                    <h4>5</h4>
-                </div>
-                <div class="number two">
-                    <h4>2</h4>
-                </div>
-                <div class="number dot">
-                    <h4>.</h4>
-                </div>
-
+                <button class="number">8</button>
+                <button class="number">5</button>
+                <button class="number">2</button>
+                <button class="number">.</button>
             </div>
             <div class="column-three">
-                <div class="number nine">
-                    <h4>9</h4>
-                </div>
-                <div class="number six">
-                    <h4>6</h4>
-                </div>
-                <div class="number three">
-                    <h4>3</h4>
-                </div>
-                <div class="number c">
-                    <h4>C</h4>
-                </div>
+                <button class="number">9</button>
+                <button class="number">6</button>
+                <button class="number">3</button>
+                <button class=" c">C</button>
             </div>
 
-            <div class="result ">
-                <h4>=</h4>
-            </div>
+            <button class="result">=</button>
         </div>
 
     </div>
