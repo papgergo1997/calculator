@@ -59,13 +59,12 @@ class Calculator {
         this.currentOperandTextElement.innerText = this.currentOperand
         if(this.operation != null) {
             this.previousOperandTextElement.innerText = `${this.previousOperand} ${this.operation}`
+        };
 
-        };     
-       
     };
 };
 
-const previousOperandTextElement = document.querySelector('.previous-operand');
+ const previousOperandTextElement = document.querySelector('.previous-operand');
 const currentOperandTextElement = document.querySelector('.current-operand');
 
 const numberBtn = document.querySelectorAll('.number');
@@ -97,7 +96,7 @@ resultBtn.addEventListener('click', button => {
 
 clearBtn.addEventListener('click', button => {
     calculator.clear()
-    calculator.updateDisplay()  
+    calculator.updateDisplay()
 })
 
 

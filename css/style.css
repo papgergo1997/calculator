@@ -7,12 +7,12 @@ body {
     flex-direction: column;
     margin: auto;
     padding: 1rem;
-    background-color: rgb(151, 151, 200);
+    background-color: rgba(13, 150, 127, 0.466);
     height:300px;
     width: 250px;
-   margin-top: 200px;
-   border-radius: 10px;
-   box-shadow: 0 0 9px black;
+    margin-top: 200px;
+    border-radius: 10px;
+    box-shadow: 0 0 9px black;
 }
 
 /*Input*/
@@ -20,10 +20,19 @@ body {
 
 .input {
     width: 100%;
+    
+}
+.previous-operand {
+    font-size: small;
+    text-align: right;
+    color: rgb(100, 100, 100);
+}
+
+.current-operand {
+    font-size: large;
     height: 2rem;
-    margin: 1%;
-    outline: transparent;
-    border: transparent;
+    text-align: right;
+    color: rgb(100, 100, 100);
 }
 
 /*Calc-Signs*/
@@ -39,18 +48,28 @@ body {
 .operator {
     display: flex;
     width: 25%;
-    background-color: rgb(150, 150, 150);
-    padding-left: 1.5rem;
-    text-align: center;
-    vertical-align: middle;
+    background-color: rgb(150, 150, 150); 
+    padding-left: 1.4rem;
+    align-items: center;
+    font-size: larger;
     margin: 2px;
     border-radius: 10px;
     box-shadow: 0 0 9px rgb(100, 100, 100);
+    outline: transparent;
+    border: transparent;
 }
 
-.calc-sign:hover {
+.minus {
+    padding-left: 1.6rem;
+}
+
+.multi {
+    padding-top: 0.3rem;
+}
+
+.operator:hover {
     cursor: pointer;
-    background-color: rgba(0, 221, 0, 0.425);
+    background-color: rgba(0, 88, 221, 0.425);
     box-shadow: 0 0 9px black;
 }
 
@@ -58,9 +77,7 @@ body {
 
 .numbers {
     display: flex;
-   align-items: stretch; 
-   
-   
+    align-items: stretch;   
 }
 
 .column-one {
@@ -71,8 +88,7 @@ body {
 .column-two {
     display: flex;
     flex-direction: column;
-    width: 60%;
-       
+    width: 60%;       
 }
 
 .column-three {
@@ -90,6 +106,8 @@ body {
     line-height: 2.5rem;    
     box-shadow: 0 0 9px rgb(100, 100, 100);
     border-radius: 5px;
+    outline: transparent;
+    border: transparent;
 }
 
 .c {
@@ -100,7 +118,16 @@ body {
     text-align: center;
     line-height: 2.5rem;    
     box-shadow: 0 0 9px rgb(100, 100, 100);
-    border-radius: 5px;}
+    border-radius: 5px;
+    outline: transparent;
+    border: transparent;
+}
+
+.c:hover { 
+    cursor: pointer; 
+    background-color: rgb(220, 0, 0);  
+    box-shadow: 0 0 9px black;
+}
 
 .number:hover {
     cursor: pointer;
@@ -110,6 +137,7 @@ body {
 
 /*Result*/
 .result {
+    align-items: center;
     display: flex;
     flex-direction: column;  
     width: 25%; 
@@ -120,6 +148,8 @@ body {
     /* padding-left: 1rem;     */
     box-shadow: 0 0 9px rgb(100, 100, 100);
     border-radius: 5px;
+    border: transparent;
+    outline: transparent;
 }
 
 .result:hover {
