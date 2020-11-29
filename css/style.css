@@ -24,6 +24,7 @@ body {
 }
 .previous-operand {
     font-size: small;
+    height: 1rem;
     text-align: right;
     color: rgb(100, 100, 100);
 }
@@ -32,7 +33,7 @@ body {
     font-size: large;
     height: 2rem;
     text-align: right;
-    color: rgb(100, 100, 100);
+    color: rgb(100, 100, 100);    
 }
 
 /*Calc-Signs*/
